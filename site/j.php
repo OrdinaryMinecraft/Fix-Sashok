@@ -3,6 +3,7 @@
 	include_once("loger.php");
 	if (($_SERVER['REQUEST_METHOD'] == 'POST' ) && (stripos($_SERVER["CONTENT_TYPE"], "application/json") === 0)) {
 		$json = json_decode(file_get_contents('php://input'));
+		
 	}
     
 	@$md5 = $json->selectedProfile; @$sessionid = @$json->accessToken; @$serverid = $json->serverId;

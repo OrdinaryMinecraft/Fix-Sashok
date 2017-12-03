@@ -10,12 +10,12 @@ public class Settings {
 	/**
 	 * Папка с файлом конфигурации
 	 */
-	public static final String baseconf = "voxelaria";
+	public static final String baseconf = "Launcher";
 
 	/**
 	 * Конструктор пути к папке с MC
 	 */
-	public static final String pathconst = "voxelaria/%SERVERNAME%";
+	public static final String pathconst = "Launcher/%SERVERNAME%";
 
 	/** Папка скинов */
 	public static final String skins = "MinecraftSkins/";
@@ -30,12 +30,12 @@ public class Settings {
 	public static final String http = "http://";
 
 	/** Домен сайта */
-	public static final String domain = "localhost";
+	public static final String domain = "sessionserver.zveronline.ru";
 
 	/**
 	 * Папка с файлами лаунчера на сайте
 	 */
-	public static final String siteDir = "site";
+	public static final String siteDir = "Launcher";
 
 	/**
 	 * Ссылка на регистрацию, при useRegister = false
@@ -45,12 +45,10 @@ public class Settings {
 	/**
 	 * Ссылка на обновления лаунчера. Не писать на конце ".exe .jar"!
 	 */
-	public static final String updateFile = http + "localhost/site/launcher/fix";
+	public static final String updateFile = http + "sessionserver.zveronline.ru/Launcher/Launcher";
 
 	/** Ссылка на страницу покупки ваучеров */
 	public static final String buyVauncherLink = "http://plati.ru/";
-
-	public static final String iMusicname = "001.mp3";
 
 	/**
 	 * Количество потоков для загрузки файлов.
@@ -67,7 +65,7 @@ public class Settings {
 	public static int width = 900;
 
 	/** Выделение памяти при первом запуске. */
-	public static int defaultmemory = 768;
+	public static int defaultmemory = 1024;
 
 	/** Тут ничего не трогать! */
 	public static String[] servers = { "Offline, localhost, 25565, 1.5.2", };
@@ -102,7 +100,7 @@ public class Settings {
 	public static boolean useModCheckerTimer = true;
 
 	/** Количество раз перепроверки jar во время игры */
-	public static int useModCheckerint = 2;
+	public static int useModCheckerint = 3;
 
 	/**
 	 * Скачивать assets из папки, или из архива (true=из папки false=из архива)
@@ -126,7 +124,7 @@ public class Settings {
 	public static boolean drawTracers = false;
 
 	/** Версия лаунчера */
-	public static final String masterVersion = "final_RC4";
+	public static final String masterVersion = "final";
 	/**
 	 * Ставим true после окончания настройки! Необходимо для автообновления
 	 * лаунчера после смены ключей key1 key2.

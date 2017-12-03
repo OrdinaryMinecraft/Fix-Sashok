@@ -17,13 +17,15 @@ import sun.misc.SharedSecrets;
  */
 public class eSharedSecrets extends SharedSecrets {
 
-	private static eJavaNetAccess javaNetAccess;
+    private static eJavaNetAccess javaNetAccess;
+    
+    public static void seteJavaNetAccess(eJavaNetAccess jna)
+    {
+        javaNetAccess = jna;
+    }
 
-	public static void seteJavaNetAccess(eJavaNetAccess jna) {
-		javaNetAccess = jna;
-	}
-
-	public static eJavaNetAccess geteJavaNetAccess() {
-		return javaNetAccess;
-	}
+    public static eJavaNetAccess geteJavaNetAccess()
+    {
+        return javaNetAccess;
+    }
 }

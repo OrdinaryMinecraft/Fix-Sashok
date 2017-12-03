@@ -50,12 +50,14 @@
 		$stmt->fetch();
 	} else if($crypt == 'hash_xenforo') {
 
-		$stmt = $db->prepare("SELECT scheme_class, $db_table.$db_columnId,$db_table.$db_columnUser,$db_tableOther.$db_columnId,$db_tableOther.$db_columnPass FROM $db_table, $db_tableOther WHERE BINARY $db_table.$db_columnId = $db_tableOther.$db_columnId AND $db_table.$db_columnUser= :login");
+		$stmt = $db->prepare("SELECT scheme_class, $db_table.$db_columnId,$db_table.$db_columnUser,$db_table.$db_columnState,$db_table.$db_columnBan,$db_tableOther.$db_columnId,$db_tableOther.$db_columnPass FROM $db_table, $db_tableOther WHERE BINARY $db_table.$db_columnId = $db_tableOther.$db_columnId AND $db_table.$db_columnUser= :login");
 		$stmt->bindValue(':login', $login);
 		$stmt->execute();
 		$stmt->bindColumn($db_columnUser, $realUser);
 		$stmt->bindColumn($db_columnPass, $rPass);
 		$stmt->bindColumn('scheme_class', $scheme_class);
+		$stmt->bindColumn($db_columnState, $db_noactive);
+		$stmt->bindColumn($db_columnBan, $db_banned);
 		$stmt->fetch();	
 		$pass = unserialize($rPass);
 		$realPass = $pass['hash'];
@@ -65,7 +67,17 @@
 	} else die(Security::encrypt("badhash<$>", $key1));
 
 	$checkPass = hash_name($crypt, $realPass, $postPass, @$salt);
-
+	
+	if($db_noactive == $noactive || $db_noactive == $noactive2)
+		{
+			exit(Security::encrypt("В настоящий момент Ваша учётная запись ожидает подтверждения.", $key1));
+		}
+		
+	if($db_banned == $banned)
+	{
+		exit(Security::encrypt("В настоящий момент Ваша учётная запись заблокирована.", $key1));
+	}
+		
 	if($useantibrut) {
 		$ip  = getenv('REMOTE_ADDR');	
 		$time = time();
@@ -215,9 +227,9 @@
 
         function hashc($assetsfolder,$client) {
         	if($assetsfolder) {
-	        	$hash_md5    = str_replace("\\", "/",checkfiles('clients/'.$client.'/bin/').checkfiles('clients/'.$client.'/mods/').checkfiles('clients/'.$client.'/coremods/').checkfiles('clients/'.$client.'/natives/').checkfiles('clients/assets')).'<::>assets/indexes<:b:>assets/objects<:b:>assets/virtual<:b:>'.$client.'/bin<:b:>'.$client.'/mods<:b:>'.$client.'/coremods<:b:>'.$client.'/natives<:b:>';
+	        	$hash_md5    = str_replace("\\", "/",checkfiles('clients/'.$client.'/bin/').checkfiles('clients/'.$client.'/mods/').checkfiles('clients/'.$client.'/coremods/').checkfiles('clients/'.$client.'/resourcepacks/').checkfiles('clients/'.$client.'/shaderpacks/').checkfiles('clients/'.$client.'/natives/').checkfiles('clients/assets')).'<::>assets/indexes<:b:>assets/objects<:b:>assets/virtual<:b:>'.$client.'/bin<:b:>'.$client.'/mods<:b:>'.$client.'/coremods<:b:>'.$client.'/resourcepacks<:b:>'.$client.'/shaderpacks<:b:>'.$client.'/natives<:b:>';
 			} else {
-		        $hash_md5    = str_replace("\\", "/",checkfiles('clients/'.$client.'/bin/').checkfiles('clients/'.$client.'/mods/').checkfiles('clients/'.$client.'/coremods/').checkfiles('clients/'.$client.'/natives/')).'<::>'.$client.'/bin<:b:>'.$client.'/mods<:b:>'.$client.'/coremods<:b:>'.$client.'/natives<:b:>';
+		        $hash_md5    = str_replace("\\", "/",checkfiles('clients/'.$client.'/bin/').checkfiles('clients/'.$client.'/mods/').checkfiles('clients/'.$client.'/coremods/').checkfiles('clients/'.$client.'/resourcepacks/').checkfiles('clients/'.$client.'/shaderpacks/').checkfiles('clients/'.$client.'/natives/')).'<::>'.$client.'/bin<:b:>'.$client.'/mods<:b:>'.$client.'/coremods<:b:>'.$client.'/resourcepacks<:b:>'.$client.'/shaderpacks<:b:>'.$client.'/natives<:b:>';
 		    }
 		    return $hash_md5;
         }
@@ -586,7 +598,7 @@
         }
         return $status === 0;
     }
-	
+
 	function hash_name($ncrypt, $realPass, $postPass, $salt) {
 		$cryptPass = false;
 		
@@ -606,10 +618,10 @@
 				$cryptPass = md5(md5($postPass));
 			} else {
 				if(pass_verify($postPass, $realPass)) {
-					$cryptPass = $realPass;
-				} else {
-					$cryptPass = "0";
-				}
+ 					$cryptPass = $realPass;
+ 				} else {
+ 					$cryptPass = "0";
+ 				}
 			}
 		}
 
@@ -668,6 +680,7 @@
 					$cryptPass = '*1';
 
 				$id = substr($realPass, 0, 3);
+
 				if ($id != '$P$' && $id != '$H$')
 					return $cryptPass = crypt($postPass, $realPass);
 
@@ -776,6 +789,7 @@
         $password=null;
         while($max--)
         $password.=$chars[rand(0,$size)];
+
           return $password;
         }
 

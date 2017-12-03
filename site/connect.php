@@ -33,7 +33,7 @@
 	$db_port			= '3306'; // Порт базы данных
 	$db_user			= 'root'; // Пользователь базы данных
 	$db_pass			= 'root'; // Пароль базы данных
-	$db_database		= 'fix'; //База данных
+	$db_database		= 'Launcher'; //База данных
 	
 	$db_table       	= 'accounts'; //Таблица с пользователями
 	$db_columnId  		= 'id'; //Колонка с ID пользователей
@@ -48,16 +48,20 @@
 
 	$banlist            = 'banlist'; //Таблица плагина Ultrabans
 	
+        $noactive           = 'email_confirm'; //Значение не активированных
+	$noactive2          = 'moderated'; //Значение не активированных
+	$banned             = 1; //Значение забаненных
+	
 	$useban             =  false; //Бан на сервере = бан в лаунчере, Ultrabans плагин
 	$useantibrut        =  true; //Защита от частых подборов пароля (Пауза 1 минута при неправильном пароле)
 	
-	$masterversion  	= 'final_RC4'; //Мастер-версия лаунчера
+	$masterversion  	= 'final'; //Мастер-версия лаунчера
 	$protectionKey		= '1234567890'; 
 	$key1               = "1234567891234567";  //16 Character Key Ключ пост запросов
 	$key2               = "1234567891234567"; //16 Character  Key  Ключ пост запросов
     $checklauncher      = false; //Проверка хеша лаунчера
-	$md5launcherexe     = @md5_file("launcher/fix.exe");  // Сверяем MD5
-	$md5launcherjar     = @md5_file("launcher/fix.jar");  // Сверяем MD5
+	$md5launcherexe     = @md5_file("Launcher.exe");  // Сверяем MD5
+	$md5launcherjar     = @md5_file("Launcher.jar");  // Сверяем MD5
 	$temp               = true;  //Использовать файлы кеширования для ускорение авторизации и снижение нагрузки на вебсервер.
 	                             //Удаляем файл хеша после обновления клиента на сервере в папке /temp/ИмяКлиента!
 
@@ -67,8 +71,8 @@
 
 	$uploaddirs         = 'MinecraftSkins';  //Папка скинов
 	$uploaddirp         = 'MinecraftCloaks'; //Папка плащей
-    $skinurl            = 'http://alexandrage.ru/site/'.$uploaddirs.'/'; //Ссылка на скины для клиентов 1.7.+
-    $capeurl            = 'http://alexandrage.ru/site/'.$uploaddirp.'/'; //Ссылка на плащи для клиентов 1.7.+
+    $skinurl            = 'http://sessionserver.zveronline.ru/Launcher/'.$uploaddirs.'/'; //Ссылка на скины для клиентов 1.7.+
+    $capeurl            = 'http://sessionserver.zveronline.ru/Launcher/'.$uploaddirp.'/'; //Ссылка на плащи для клиентов 1.7.+
 	
 	$usePersonal 		=  true; //Использовать личный кабинет
 	$canUploadSkin		=  true; //Можно ли заливать скины
