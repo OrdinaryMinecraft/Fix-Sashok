@@ -14,7 +14,6 @@ public class OptionsTheme {
 	public static ComponentStyle    panelOpt	= new ComponentStyle(53, 128, 400, 350, "font", 16F, Color.decode("0xA67A53"), true);
 	
 	public static CheckboxStyle		loadnews	= new CheckboxStyle(600, 150, 300, 23, "font", "checkbox", 16F, Color.decode("0xFFFFFF"), true);
-    //public static CheckboxStyle		Music	    = new CheckboxStyle(147, 182, 300, 23, "font", "checkbox", 16F, Color.decode("0xFFFFFF"), true);
 	public static CheckboxStyle		updatepr	= new CheckboxStyle(147, 207, 300, 23, "font", "checkbox", 16F, Color.decode("0xFFFFFF"), true);
 	public static CheckboxStyle		cleandir	= new CheckboxStyle(147, 232, 300, 23, "font", "checkbox", 16F, Color.decode("0xFFFFFF"), true);
 	public static CheckboxStyle		fullscrn	= new CheckboxStyle(147, 257, 300, 23, "font", "checkbox", 16F, Color.decode("0xFFFFFF"), true);

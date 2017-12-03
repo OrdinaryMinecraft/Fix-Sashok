@@ -20,7 +20,6 @@ public class Message {
 	public static String mc_directory = "Изменить";
 	public static String options_close = "Закрыть";
 	public static String loadnews = "Загружать новости";
-    //public static String Music = "Музыка в лаунчере";
 	public static String updatepr = "Принудительное обновление";
 	public static String cleanDir = "Очистить папку";
 	public static String fullscreen = "Запустить в полный экран";

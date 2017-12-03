@@ -23,3 +23,6 @@
 /ThreadUtils.class
 /UpdaterThread.class
 /ZipUtils.class
+/Base64$Decoder.class
+/Base64$Encoder.class
+/Base64.class

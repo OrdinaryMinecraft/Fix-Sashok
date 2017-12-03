@@ -79,7 +79,6 @@ public class Frame extends JFrame implements ActionListener, FocusListener
 	public Button update_no = new Button(Message.update_no);
 
 	public Checkbox loadnews = new Checkbox(Message.loadnews);
-    //public Checkbox Music = new Checkbox(Message.Music);
 	public Checkbox updatepr = new Checkbox(Message.updatepr);
 	public Checkbox cleanDir = new Checkbox(Message.cleanDir);
 	public Checkbox fullscreen = new Checkbox(Message.fullscreen);

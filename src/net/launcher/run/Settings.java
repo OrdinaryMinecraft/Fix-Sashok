@@ -91,7 +91,7 @@ public class Settings {
 	public static boolean usePersonal = true;
 
 	/** Использовать кастомный фрейм */
-	public static boolean customframe = true;
+	public static boolean customframe = false;
 
 	/** Использовать скрытие консоли клиента */
 	public static boolean useConsoleHider = false;

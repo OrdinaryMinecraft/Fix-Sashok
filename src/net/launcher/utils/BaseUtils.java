@@ -277,7 +277,6 @@ public class BaseUtils
 
             ct.connect();
 
-            //InputStreamReader is = new InputStreamReader(ct.getInputStream(), StandardCharsets.UTF_8);
             StringBuilder response;
             try (BufferedReader rd = new BufferedReader(new InputStreamReader(ct.getInputStream(), StandardCharsets.UTF_8)))
             {

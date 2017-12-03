@@ -40,7 +40,6 @@ public class ThemeUtils extends BaseUtils
 		servers.apply(main.servers);
 		serverbar.apply(main.serverbar);
 		loadnews.apply(main.loadnews);
-        //Music.apply(main.Music);
 		updatepr.apply(main.updatepr);
 		cleandir.apply(main.cleanDir);
 		fullscrn.apply(main.fullscreen);
