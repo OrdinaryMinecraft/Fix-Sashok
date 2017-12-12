@@ -21,7 +21,10 @@ public class Starter {
 			if(System.getProperty("os.arch").contains("64") && System.getProperty("sun.arch.data.model").equals("32")) {
 				JOptionPane.showMessageDialog(Frame.main, "Рекомендуется использовать\njava 64 bit", "Предупреждение!", javax.swing.JOptionPane.ERROR_MESSAGE, null);
 			}
-
+			if(System.getProperty("sun.arch.data.model").equals("32") && (memory>1024)) {
+				memory = 1024;
+				BaseUtils.setProperty("memory", 1024);
+			}
 			params.add("-Xmx"+memory+"m");
 			if(System.getProperty("os.name").toLowerCase().startsWith("mac"))
 			{
