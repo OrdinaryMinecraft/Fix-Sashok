@@ -138,7 +138,11 @@ public class ThreadUtils
 			} else if(answer.contains("badhash<$>"))
 			{
 				Frame.main.panel.tmpString = Message.badhash;
-				error = true;	
+				error = true;
+			} else if(answer.contains("noactive"))
+			{
+				Frame.main.panel.tmpString = Message.noactive;
+			    error = true;
 			} else if(answer.split("<br>").length != 4)
 			{
 				Frame.main.panel.tmpString = answer;

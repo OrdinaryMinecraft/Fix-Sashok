@@ -65,7 +65,7 @@ public class Settings {
 	public static int width = 900;
 
 	/** Выделение памяти при первом запуске. */
-	public static int defaultmemory = 1024;
+	public static int defaultmemory = 2048;
 
 	/** Тут ничего не трогать! */
 	public static String[] servers = { "Offline, localhost, 25565, 1.5.2", };

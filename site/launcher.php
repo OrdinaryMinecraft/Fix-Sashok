@@ -70,7 +70,7 @@
 	
 	if($db_noactive == $noactive || $db_noactive == $noactive2)
 		{
-			exit(Security::encrypt("В настоящий момент Ваша учётная запись ожидает подтверждения.", $key1));
+			exit(Security::encrypt("noactive", $key1));
 		}
 		
 	if($db_banned == $banned)

@@ -65,9 +65,9 @@ public class Message {
 	public static String update = " ";
 	public static String str1 = "Для продолжения игры обновите лаунчер.";
 	public static String str2 = "Новый лаунчер содержит разные улучшения и исправления,";
-	public static String str3 = "а так же необходим для запуска игры. Нажмите \"Обновить\",";
-	public static String str4 = "чтобы скачать новую версию. Если же вы не можете обновить";
-	public static String str5 = "лаунчер прямо сейчас, нажмите кнопку \"Выход\".";
+	public static String str3 = "а так же необходим для запуска игры. Нажмите";
+	public static String str4 = "кнопку в соответствии с вашей ос чтобы скачать";
+	public static String str5 = "новую версию.";
 	public static String str6 = "Текущая версия: %%";
 	public static String str7 = "Новая версия: %%";
 	public static String str8 = "Идет обновление лаунчера...";
