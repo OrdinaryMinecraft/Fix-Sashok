@@ -82,7 +82,7 @@ public class Settings {
 	public static boolean useAutoenter = false;
 
 	/** Использовать Регистрацию в лаунчере */
-	public static boolean useRegister = false;
+	public static boolean useRegister = true;
 
 	/** Использовать стандартный браузер для открытия ссылок */
 	public static boolean useStandartWB = true;
