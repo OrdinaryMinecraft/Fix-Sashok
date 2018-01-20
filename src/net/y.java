@@ -223,6 +223,10 @@ public final class y {
 
     //}
     private static void close(BufferedReader in, InputStream errorStream, OutputStream outputStream) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        try {
+            in.close();
+        } catch (IOException e) {
+            
+        }
     }
 }

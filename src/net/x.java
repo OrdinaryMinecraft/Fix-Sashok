@@ -14,7 +14,7 @@ public class x {
             if (g == null) {
                 g = m.group(1);
             }
-        	return g == null ? g : g.replace('-', ':');
+        	return g == null ? g : g.replace("-", "");
         }
         return null;
     }
