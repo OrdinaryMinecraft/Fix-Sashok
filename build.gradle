@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'net.launcher.run.Mainclass'
+
+sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    maven {
+        name "maven"
+        url "https://repo1.maven.org/maven2"        
+    }    
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+jar {
+    baseName = 'Launcher'
+    version ='1.0'
+    manifest {
+        attributes 'Main-Class': 'net.launcher.run.Mainclass'
+    }
+}
